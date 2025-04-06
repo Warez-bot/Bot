@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экспресс-пригород</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        .title {
+            color: #e32212;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .button {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="https://via.placeholder.com/180x180/e32212/ffffff?text=РЖД" alt="Логотип РЖД">
+        <div class="title">Экспресс-пригород</div>
+        
+        <button class="button" id="testButton">Тест</button>
+    </div>
+
+    <script>
+        // Инициализация Telegram WebApp
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Расширяем приложение на весь экран
+        
+        // Устанавливаем основной цвет приложения
+        tg.setHeaderColor('#e32212');
+        
+        // Получаем кнопку теста
+        const testButton = document.getElementById('testButton');
+        
+        // Добавляем обработчик события нажатия на кнопку
+        testButton.addEventListener('click', function() {
+            // Отправляем данные в родительское приложение (Telegram)
+            tg.sendData('ТЕСТ');
+            // Закрываем веб-приложение
+            tg.close();
+        });
+    </script>
+</body>
+</html> 
